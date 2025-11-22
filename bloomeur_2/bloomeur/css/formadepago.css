@@ -1,0 +1,368 @@
+/* ---------- RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- BASE ---------- */
+body {
+  background: #ece7dd;
+  font-family: "Montserrat", sans-serif;
+  color: #3d3a32;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("../img/noise.jpg") repeat;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: -1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  width: 100%;
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-transform: lowercase;
+  letter-spacing: 0.15rem;
+  font-size: 0.95rem;
+  color: #5e5a50;
+}
+
+.menu-hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.3rem;
+}
+
+.menu-hamburger span {
+  display: block;
+  height: 2px;
+  border-radius: 999px;
+  background: #3c362c;
+}
+
+.menu-hamburger span:nth-child(1) {
+  width: 28px;
+}
+
+.menu-hamburger span:nth-child(2) {
+  width: 20px;
+}
+
+.menu-hamburger span:nth-child(3) {
+  width: 14px;
+}
+
+.navbar-center {
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.star {
+  font-size: 2.8rem;
+  color: #7f7c73;
+}
+
+.icon-btn,
+.cart-btn {
+  background: #c7ba90;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* ---------- PAGO CONTAINER ---------- */
+.pago-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 4rem 4rem;
+}
+
+.pago-header {
+  margin-bottom: 3rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #8c8678;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #6b5a45;
+}
+
+.pago-header h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.2rem;
+  color: #2b2821;
+}
+
+.pago-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 3rem;
+}
+
+/* ---------- PAGO OPTIONS ---------- */
+.pago-options h2 {
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
+  color: #2b2821;
+  margin-bottom: 2rem;
+}
+
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.payment-method {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid #d7d0bf;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  color: #2b2821;
+  transition: all 0.3s ease;
+}
+
+.payment-method:hover {
+  border-color: #c7ba90;
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.method-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: rgba(199, 186, 144, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.method-icon i {
+  font-size: 1.8rem;
+  color: #8c7054;
+}
+
+.method-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.method-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2b2821;
+}
+
+.method-info p {
+  font-size: 0.85rem;
+  color: #8c8678;
+}
+
+.payment-method i:last-child {
+  color: #8c8678;
+  font-size: 1.3rem;
+}
+
+/* ---------- ORDER SUMMARY ---------- */
+.order-summary {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid #d7d0bf;
+  border-radius: 24px;
+  padding: 2rem;
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.order-summary h2 {
+  font-size: 1.1rem;
+  letter-spacing: 0.15rem;
+  color: #2b2821;
+  margin-bottom: 1.5rem;
+}
+
+.order-items-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #d7d0bf;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #6b675b;
+}
+
+.summary-totals {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #6b675b;
+}
+
+.summary-row.total {
+  font-weight: 600;
+  color: #2b2821;
+  font-size: 1.1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #d7d0bf;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1100px) {
+  .pago-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .order-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .pago-container {
+    padding: 1.5rem 2rem 2.5rem;
+  }
+
+  .pago-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .payment-method {
+    padding: 1.2rem;
+    gap: 1rem;
+  }
+
+  .method-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .method-icon i {
+    font-size: 1.5rem;
+  }
+
+  .order-summary {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .pago-container {
+    padding: 2rem 2rem 3rem;
+  }
+
+  .pago-header h1 {
+    font-size: 2rem;
+  }
+
+  .payment-method {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .method-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .order-summary {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pago-container {
+    padding: 1.5rem 1.5rem 2rem;
+  }
+
+  .pago-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .pago-options h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .payment-method {
+    padding: 0.9rem;
+  }
+
+  .method-info h3 {
+    font-size: 0.95rem;
+  }
+
+  .method-info p {
+    font-size: 0.8rem;
+  }
+}
+

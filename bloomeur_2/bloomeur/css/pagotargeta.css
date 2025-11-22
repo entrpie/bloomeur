@@ -1,0 +1,486 @@
+/* ---------- RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- BASE ---------- */
+body {
+  background: #ece7dd;
+  font-family: "Montserrat", sans-serif;
+  color: #3d3a32;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("../img/noise.jpg") repeat;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: -1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  width: 100%;
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-transform: lowercase;
+  letter-spacing: 0.15rem;
+  font-size: 0.95rem;
+  color: #5e5a50;
+}
+
+.menu-hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.3rem;
+}
+
+.menu-hamburger span {
+  display: block;
+  height: 2px;
+  border-radius: 999px;
+  background: #3c362c;
+}
+
+.menu-hamburger span:nth-child(1) {
+  width: 28px;
+}
+
+.menu-hamburger span:nth-child(2) {
+  width: 20px;
+}
+
+.menu-hamburger span:nth-child(3) {
+  width: 14px;
+}
+
+.navbar-center {
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.star {
+  font-size: 2.8rem;
+  color: #7f7c73;
+}
+
+.icon-btn,
+.cart-btn {
+  background: #c7ba90;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* ---------- PAGO TARJETA CONTAINER ---------- */
+.pago-tarjeta-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 4rem 4rem;
+}
+
+.pago-header {
+  margin-bottom: 3rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #8c8678;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #6b5a45;
+}
+
+.pago-header h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.2rem;
+  color: #2b2821;
+}
+
+.pago-tarjeta-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 3rem;
+}
+
+/* ---------- CARD FORM ---------- */
+.card-form-section {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid #d7d0bf;
+  border-radius: 24px;
+  padding: 2.5rem;
+}
+
+.card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  color: #8c8678;
+  font-weight: 500;
+}
+
+.card-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.card-input-wrapper input {
+  width: 100%;
+  padding: 1rem 3rem 1rem 1.2rem;
+  border: 1px solid #d7d0bf;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  font-family: inherit;
+  font-size: 1rem;
+  color: #2b2821;
+  transition: all 0.3s ease;
+  letter-spacing: 0.1rem;
+}
+
+.card-input-wrapper input:focus {
+  outline: none;
+  border-color: #c7ba90;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(199, 186, 144, 0.2);
+}
+
+.card-icons {
+  position: absolute;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-icons i {
+  font-size: 1.3rem;
+  color: #8c8678;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 1px solid #d7d0bf;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #2b2821;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #c7ba90;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(199, 186, 144, 0.2);
+}
+
+.form-group input::placeholder {
+  color: #9b9485;
+  text-transform: none;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: #6b675b;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  accent-color: #c7ba90;
+  cursor: pointer;
+}
+
+.pay-btn {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  background: #2b2821;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.15rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.pay-btn:hover {
+  background: #6b5a45;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(43, 40, 33, 0.3);
+}
+
+.pay-btn:active {
+  transform: translateY(0);
+}
+
+.pay-btn i {
+  font-size: 1.1rem;
+}
+
+.security-info {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #d7d0bf;
+  color: #8c8678;
+  font-size: 0.85rem;
+}
+
+.security-info i {
+  color: #a9b794;
+  font-size: 1.2rem;
+}
+
+/* ---------- ORDER SUMMARY ---------- */
+.order-summary {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid #d7d0bf;
+  border-radius: 24px;
+  padding: 2rem;
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.order-summary h2 {
+  font-size: 1.1rem;
+  letter-spacing: 0.15rem;
+  color: #2b2821;
+  margin-bottom: 1.5rem;
+}
+
+.order-items-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #d7d0bf;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #6b675b;
+}
+
+.summary-totals {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #6b675b;
+}
+
+.summary-row.total {
+  font-weight: 600;
+  color: #2b2821;
+  font-size: 1.1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #d7d0bf;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1100px) {
+  .pago-tarjeta-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .order-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .pago-tarjeta-container {
+    padding: 1.5rem 2rem 2.5rem;
+  }
+
+  .pago-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .card-form-section {
+    padding: 2rem;
+  }
+
+  .card-form {
+    gap: 1.5rem;
+  }
+
+  .order-summary {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .pago-tarjeta-container {
+    padding: 2rem 2rem 3rem;
+  }
+
+  .pago-header h1 {
+    font-size: 2rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .card-form-section {
+    padding: 1.5rem;
+  }
+
+  .card-form {
+    gap: 1.3rem;
+  }
+
+  .form-group input {
+    padding: 0.9rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .card-input-wrapper input {
+    padding: 0.9rem 2.5rem 0.9rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .pay-btn {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pago-tarjeta-container {
+    padding: 1.5rem 1.5rem 2rem;
+  }
+
+  .pago-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .card-form-section {
+    padding: 1.2rem;
+  }
+
+  .card-form {
+    gap: 1.2rem;
+  }
+
+  .form-group label {
+    font-size: 0.7rem;
+  }
+
+  .form-group input {
+    padding: 0.8rem 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .card-input-wrapper input {
+    padding: 0.8rem 2.2rem 0.8rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .card-icons {
+    right: 0.8rem;
+  }
+
+  .card-icons i {
+    font-size: 1.1rem;
+  }
+
+  .pay-btn {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .security-info {
+    font-size: 0.8rem;
+    gap: 0.6rem;
+  }
+}
+

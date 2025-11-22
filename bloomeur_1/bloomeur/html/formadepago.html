@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>método de pago</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/formadepago.css">
+  <script src="../js/cart.js" defer></script>
+  <script src="../js/animations.js" defer></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-left">
+      <button class="menu-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="./inicio.html">i n i c i o ㅤ</a>
+        <a href="./productos.html">t i e n d a ㅤ</a>
+        <a href="./contacto.html">c o n t á c t o ㅤ</a>
+      </nav>
+    </div>
+
+    <div class="navbar-center">
+      <div class="star">✶</div>
+    </div>
+
+    <div class="navbar-right">
+      <button class="icon-btn" onclick="window.location.href='./favoritos.html'"><i class="bi bi-heart" style="color:white; font-size:20px;"></i></button>
+      <button class="cart-btn" onclick="window.location.href='./checkout.html'"><i class="bi bi-bag" style="color:white; font-size:20px;"></i></button>
+      <button class="icon-btn" onclick="window.location.href='./login.html'"><i class="bi bi-person" style="color:white; font-size:20px;"></i></button>
+    </div>
+  </header>
+
+  <!-- PAGO CONTAINER -->
+  <main class="pago-container">
+    <div class="pago-header">
+      <a href="./checkout.html" class="back-link">
+        <i class="bi bi-arrow-left"></i>
+        Volver
+      </a>
+      <h1>MÉTODO DE PAGO</h1>
+    </div>
+
+    <div class="pago-wrapper">
+      <section class="pago-options">
+        <h2>Selecciona tu método de pago</h2>
+        
+        <div class="payment-methods">
+          <a href="./pagotargeta.html" class="payment-method">
+            <div class="method-icon">
+              <i class="bi bi-credit-card"></i>
+            </div>
+            <div class="method-info">
+              <h3>Tarjeta de Crédito/Débito</h3>
+              <p>Visa, Mastercard, Amex</p>
+            </div>
+            <i class="bi bi-chevron-right"></i>
+          </a>
+
+          <a href="#" class="payment-method">
+            <div class="method-icon">
+              <i class="bi bi-paypal"></i>
+            </div>
+            <div class="method-info">
+              <h3>PayPal</h3>
+              <p>Paga con tu cuenta PayPal</p>
+            </div>
+            <i class="bi bi-chevron-right"></i>
+          </a>
+
+          <a href="#" class="payment-method">
+            <div class="method-icon">
+              <i class="bi bi-bank"></i>
+            </div>
+            <div class="method-info">
+              <h3>Transferencia Bancaria</h3>
+              <p>Pago directo desde tu banco</p>
+            </div>
+            <i class="bi bi-chevron-right"></i>
+          </a>
+
+          <a href="#" class="payment-method">
+            <div class="method-icon">
+              <i class="bi bi-cash-coin"></i>
+            </div>
+            <div class="method-info">
+              <h3>Efectivo en Entrega</h3>
+              <p>Paga cuando recibas tu pedido</p>
+            </div>
+            <i class="bi bi-chevron-right"></i>
+          </a>
+        </div>
+      </section>
+
+      <aside class="order-summary">
+        <h2>RESUMEN DEL PEDIDO</h2>
+        <div class="order-items-summary" id="orderSummary">
+          <!-- Se cargará dinámicamente -->
+        </div>
+        <div class="summary-totals">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="subtotal">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Envío</span>
+            <span id="shipping">$99.00</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total</span>
+            <span id="total">$99.00 MXN</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    // Cargar resumen del pedido
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof cart !== 'undefined') {
+        const items = cart.items;
+        const summaryContainer = document.getElementById('orderSummary');
+        const subtotalEl = document.getElementById('subtotal');
+        const totalEl = document.getElementById('total');
+
+        if (items.length === 0) {
+          summaryContainer.innerHTML = '<p>No hay productos en el carrito</p>';
+          return;
+        }
+
+        let html = '';
+        items.forEach(item => {
+          const price = parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0;
+          html += `
+            <div class="summary-item">
+              <span>${item.name} x${item.quantity}</span>
+              <span>$${(price * item.quantity).toFixed(2)}</span>
+            </div>
+          `;
+        });
+        summaryContainer.innerHTML = html;
+
+        const subtotal = cart.getSubtotal();
+        const shipping = 99;
+        const total = subtotal + shipping;
+
+        if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+        if (totalEl) totalEl.textContent = `$${total.toFixed(2)} MXN`;
+      }
+    });
+  </script>
+
+</body>
+</html>
+

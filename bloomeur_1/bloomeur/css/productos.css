@@ -1,0 +1,730 @@
+/* ------------------ PRODUCTOS ESPECÍFICOS ------------------ */
+/* Nota: Reset, body, navbar están en common.css */
+
+/* buscador específico de productos */
+.searchbar {
+    padding: 8px 14px;
+    border-radius: 15px;
+    border: none;
+    background: #d6d4cf;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.searchbar:focus {
+    background: #e8e6e1;
+    box-shadow: 0 0 0 3px rgba(199, 186, 144, 0.2);
+}
+
+/* icon-btn y cart-btn están en common.css */
+
+/* ------------------ HERO ------------------ */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 40px;
+}
+
+.hero-left h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #737360;
+    margin-top: -40px;
+    line-height: 0.9;
+}
+
+/* ------------------ PRODUCTOS ------------------ */
+/* ------------------ CARRUSEL ------------------ */
+
+/* ---- Carrusel contenedor ---- */
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    margin: 40px auto;
+}
+
+/* ---- Track que se mueve ---- */
+.carousel-track {
+    display: flex;
+    gap: 40px;
+    animation: scroll 22s linear infinite;
+}
+
+/* ---- Cada "producto" conserva tu estilo ---- */
+.producto img {
+    width: 300px;
+    height: 380px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(0,0,0,0.25);
+}
+
+/* ---- Animación infinita ---- */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* Animación */
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ---------- SECTION TITLE (Reutilizable para NUEVOS PRODUCTOS y LO MÁS VENDIDO) ---------- */
+.section-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 40px;
+    padding-bottom: 4rem;
+}
+
+.section-title-text {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #2b2821;
+    margin: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+
+.section-title-divider {
+    width: 100%;
+    max-width: 1200px;
+    height: 1px;
+    background: #d7d0bf;
+}
+
+.products-grid {
+    padding: 0 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.8rem;
+}
+
+.product-card {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 24px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.product-meta {
+    font-size: 0.75rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: #8c8575;
+}
+
+.product-name {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.product-price {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.product-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.add-pill {
+    border: none;
+    background: #c7ba90;
+    border-radius: 50px;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    flex: 1;
+}
+
+.add-pill:hover {
+    background: #a9b794;
+}
+
+/* ---------- BOTÓN DE CORAZÓN (SIN FONDO) ---------- */
+.heart-btn {
+    background: none;
+    border: none;
+    color: #d85a5a;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.heart-btn:hover {
+    transform: scale(1.1);
+}
+
+.heart-btn.active {
+    color: #d85a5a;
+}
+
+.heart-btn i {
+    color: inherit;
+}
+
+/* ---------- PROMOCIONES SECTION ---------- */
+.promociones-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 40px;
+    padding-bottom: 4rem;
+}
+
+.promociones-title {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #2b2821;
+    margin: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+
+.promociones-divider {
+    width: 100%;
+    max-width: 1200px;
+    height: 1px;
+    background: #d7d0bf;
+    margin-bottom: 1.5rem;
+}
+
+.promociones-filters {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.promociones-filters a {
+    font-size: 0.9rem;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    color: #9b9485;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.promociones-filters a.filter-active {
+    color: #2b2821;
+    font-weight: 600;
+}
+
+.promociones-filters a:hover {
+    color: #6b5a45;
+}
+
+.d-campo-text h3{
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    font-weight: 360;
+    text-align: center;
+    padding-top: 8rem;
+}
+
+.d-campo-text h4{
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-align: center;
+    padding-top: 1.5rem;
+    padding-bottom: 5rem;
+}
+
+.campo {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12 columnas para control total */
+    grid-auto-rows: 260px; /* alto base */
+    gap: 30px;
+    padding: 40px;
+  }
+  
+  /* Estilos de cada tarjeta */
+  .item {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* POSICIONES INTERCALADAS */
+  .i1 {
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 2;
+  }
+  
+  .i2 {
+    grid-column: 4 / span 3;
+    grid-row: 1 / span 2;
+  }
+  
+  .i3 {
+    grid-column: 7 / span 3;
+    grid-row: 1 / span 2;
+  }
+  
+  .i4 {
+    grid-column: 10 / span 3;
+    grid-row: 1 / span 2;
+  }
+  
+/* FOOTER */
+
+.bloomeur-footer {
+    background-color: #ded3bc; /* tono beige */
+    padding: 80px 120px;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    color: #444;
+}
+
+/* ------- LAYOUT PRINCIPAL ------- */
+.footer-left {
+    position: absolute;
+    left: 120px;
+    top: 80px;
+}
+
+.footer-center {
+    text-align: left;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.footer-right {
+    position: absolute;
+    right: 120px;
+    top: 120px;
+}
+
+/* ------- TEXTOS LADO IZQUIERDO ------- */
+.footer-section {
+    margin-bottom: 60px;
+}
+
+.footer-heading {
+    font-size: 12px;
+    letter-spacing: 1px;
+    opacity: 0.5;
+    margin-bottom: 8px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section li {
+    font-size: 12px;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+}
+
+/* ------- CENTRO (LOGO) ------- */
+.footer-subtitle {
+    font-size: 10px;
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
+
+.footer-logo {
+    font-size: 65px;
+    font-weight: 800;
+    line-height: 55px;
+    margin-top: 10px;
+    letter-spacing: -2px;
+    color: #805135;
+}
+
+.footer-logo h6{
+    font-size: 65px;
+    font-weight: 800;
+    line-height: 55px;
+    margin-top: 10px;
+    letter-spacing: -2px;
+    color: #282828;
+}
+
+/* ------- DERECHA ------- */
+.footer-description {
+    font-size: 12px;
+    opacity: 0.6;
+    letter-spacing: 1px;
+}
+
+.footer-line {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: #444;
+    margin-top: 10px;
+}
+
+/* ------- PARTE INFERIOR ------- */
+.footer-bottom {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+/* ------------------ NOTIFICACIÓN CARRITO ------------------ */
+.cart-notification {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: rgba(60, 54, 44, 0.95);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  z-index: 10000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cart-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------ BADGE FAVORITOS ------------------ */
+.favoritos-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #d85a5a;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  border: 2px solid #ece7dd;
+}
+
+/* ------------------ NOTIFICACIÓN FAVORITOS ------------------ */
+.favoritos-notification {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: rgba(60, 54, 44, 0.95);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  z-index: 10000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.favoritos-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1200px) {
+  .hero {
+    padding: 60px 30px;
+  }
+
+  .hero-left h1 {
+    font-size: 3rem;
+  }
+
+  .products-grid {
+    padding: 0 30px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .section-title {
+    padding: 60px 30px;
+  }
+
+  .section-title-text {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .hero-left h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+  }
+
+  .products-grid {
+    padding: 0 20px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .section-title {
+    padding: 50px 20px;
+  }
+
+  .section-title-text {
+    font-size: 2.2rem;
+  }
+
+  .promociones-title {
+    font-size: 2.2rem;
+  }
+
+  .campo {
+    grid-template-columns: repeat(6, 1fr);
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .i1, .i2, .i3, .i4 {
+    grid-column: span 3;
+  }
+
+  .bloomeur-footer {
+    padding: 60px 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 30px 15px;
+  }
+
+  .hero-left h1 {
+    font-size: 2rem;
+  }
+
+  .products-grid {
+    padding: 0 15px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .product-card {
+    padding: 0.8rem;
+  }
+
+  .section-title {
+    padding: 40px 15px;
+  }
+
+  .section-title-text {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .promociones-section {
+    padding: 40px 15px;
+  }
+
+  .promociones-title {
+    font-size: 1.8rem;
+  }
+
+  .promociones-filters {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .promociones-filters a {
+    font-size: 0.8rem;
+  }
+
+  .campo {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .i1, .i2, .i3, .i4 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .d-campo-text h3 {
+    font-size: 5rem;
+    padding-top: 4rem;
+  }
+
+  .d-campo-text h4 {
+    font-size: 5rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  .bloomeur-footer {
+    padding: 40px 30px;
+    position: relative;
+  }
+
+  .footer-left,
+  .footer-right {
+    position: static;
+    margin-bottom: 2rem;
+  }
+
+  .footer-center {
+    margin: 2rem auto;
+  }
+
+  .footer-logo {
+    font-size: 50px;
+    line-height: 45px;
+  }
+
+  .footer-bottom {
+    position: static;
+    transform: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .carousel {
+    margin: 20px auto;
+  }
+
+  .producto img {
+    width: 250px;
+    height: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 20px 10px;
+  }
+
+  .hero-left h1 {
+    font-size: 1.6rem;
+  }
+
+  .products-grid {
+    padding: 0 10px;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .product-card {
+    padding: 0.7rem;
+    border-radius: 16px;
+  }
+
+  .product-card img {
+    border-radius: 12px;
+  }
+
+  .section-title {
+    padding: 30px 10px;
+  }
+
+  .section-title-text {
+    font-size: 1.5rem;
+  }
+
+  .promociones-title {
+    font-size: 1.5rem;
+  }
+
+  .campo {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .i1, .i2, .i3, .i4 {
+    grid-column: span 1;
+  }
+
+  .bloomeur-footer {
+    padding: 30px 20px;
+  }
+
+  .footer-logo {
+    font-size: 40px;
+    line-height: 35px;
+  }
+
+  .producto img {
+    width: 200px;
+    height: 260px;
+  }
+
+  .cart-notification,
+  .favoritos-notification {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    padding: 0.7rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
